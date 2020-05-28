@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Enroll Routes
+Route::get('/enroll', 'EnrolledSubjectController@show')->name('enrollment.enroll');
+
+//Subject Routes
+Route::get('/students', 'StudentController@index')->name('student.index');
+
+//Student Routes
+Route::get('/subjects', 'SubjectController@index')->name('subject.index');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
