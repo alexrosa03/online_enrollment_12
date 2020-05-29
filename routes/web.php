@@ -19,13 +19,21 @@ Route::get('/', function () {
 
 // Enroll Routes
 Route::get('/enroll', 'EnrolledSubjectController@show')->name('enrollment.enroll');
-
-//Subject Routes
-Route::get('/students', 'StudentController@index')->name('student.index');
+Route::get('/enroll/{subjectName}', 'EnrolledSubjectController@show_results');
+Route::post('/subjects/edit/{subjectId}', 'EnrolledSubjectController@enroll_student');
 
 //Student Routes
-Route::get('/subjects', 'SubjectController@index')->name('subject.index');
+Route::get('/students', 'StudentController@index')->name('student.index');
+Route::post('/students', 'StudentController@store')->name('student.store');
+Route::delete('/students/delete/{id}', 'StudentController@delete');
+Route::put('/students/edit/{id}', 'StudentController@update');
 
+//Subject Routes
+Route::get('/subjects', 'SubjectController@index')->name('subject.index');
+Route::get('/subjects/{id}', 'SubjectController@show');
+Route::post('/subjects', 'SubjectController@store')->name('subject.store');
+Route::put('/subjects/edit/{id}', 'SubjectController@update');
+Route::delete('/subjects/delete/{id}', 'SubjectController@delete');
 
 Auth::routes();
 
