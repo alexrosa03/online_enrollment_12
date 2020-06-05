@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Enrolled_subject;
+use App\Subject;
 use App\Student;
+use Response;
 
 class StudentController extends Controller
 {
@@ -28,6 +31,13 @@ class StudentController extends Controller
     }
 
     public function delete($id) {
+        $student = Enrolled_subject::where('student_id', $id)->get();
+        for ($i=0; $i < count($student); $i++) { 
+            $subject = Subject::find($student[$i]['subject_id']);
+            $subject->enrollees -= 1;
+            $subject->save();
+        }
+        Enrolled_subject::where('student_id', $id)->delete();
         Student::destroy($id);
     }
 

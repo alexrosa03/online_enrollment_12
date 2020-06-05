@@ -26,7 +26,7 @@
         <td style="display:none;">{{ $subject->capacity }}</td>
         <td style="display:none;">{{ $subject->room }}</td>
         <td style="display:none;">{{ $subject->schedule }}</td>
-        <td style="display:none;" id="subId">{{ $subject->id }}</td>
+        <td style="display:none;" class="subId">{{ $subject->id }}</td>
         <td>
           <a href="#" class="btn btn-outline-primary view_btn">View</a>
           <a href="#" class="btn btn-outline-success edit_btn">Edit</a>
@@ -118,7 +118,7 @@
             <h5 class="modal-title" id="exampleModalLongTitle">Current Enrollees</h5>
           </div>
           <div class="modal-body">
-            <table class="table text-center">
+            <table id="tb" class="table text-center">
                 <thead class="thead-dark">
                     <tr>
                     <th scope="col">Id Number</th>
@@ -128,16 +128,7 @@
                     <th scope="col">Option</a></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>18132751</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>BSCS</td>
-                        <td>
-                            <a href="" class="btn btn-outline-danger">Delete</a>
-                        </td>
-                    </tr>
+                <tbody id="table">
                 </tbody>
             </table>
           </div>
@@ -167,6 +158,28 @@
   </div>
 </div>
 <!----------------------------------------------- DELETE MODAL END ----------------------------------------------->
+<div>
+<!----------------------------------------------- DELETE STUDENT ENROLLMENT MODAL START ----------------------------------------------->
+<div class="modal fade" id="deleteStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title text-center" style="width:100%">Are you sure you want to delete this student from this subject?</h5>
+      </div>
+      <div class="modal-body">
+      <form class="text-center" id="deleteStudentForm">
+          {{ csrf_field() }}
+          {{ method_field('delete') }}
+            <input type="hidden" id="subId" name="subId">
+            <input type="hidden" id="studentId" name="studentId">
+            <button type="submit" class="btn btn-outline-success" style="width:40%;">Yes</button>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal" style="width:40%;">No</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------------------------------------------- DELETE STUDENT ENROLLMENT MODAL END ----------------------------------------------->
 </div>
 <script src="{{asset('js/subjects.js')}}"></script>
 @endsection

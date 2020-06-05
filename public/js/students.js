@@ -49,8 +49,8 @@ $(document).ready(function () {
                 data: $('#deleteStudentForm').serialize(),
                 success: function (response) {
                     console.log(response);
-                        $('#deleteStudentModal').modal('hide');
-                        alert("Data Deleted");
+                        // $('#deleteStudentModal').modal('hide');
+                        // alert("Data Deleted");
                         //location.reload();
                     },
                     error: function(error) {
@@ -112,11 +112,11 @@ $(document).ready(function () {
 
         console.log(data);
 
-        $('#showFirstName').append(" "+data[1]);
-        $('#showLastName').append(" "+data[2]);
-        $('#showId').append(" "+data[0]);
-        $('#showBirthday').append(" "+data[3]);
-        $('#showCourse').append(" "+data[4]);
+        $('.showFirstName').text("First Name: "+data[1]);
+        $('.showLastName').text("Last Name: "+data[2]);
+        $('.showId').text("ID: "+data[0]);
+        $('.showBirthday').text("Birthday: "+data[3]);
+        $('.showCourse').text("Course: "+data[4]);
     });
     // <------------------------------ VIEWING A STUDENT RECORD END--------------------------->
 });

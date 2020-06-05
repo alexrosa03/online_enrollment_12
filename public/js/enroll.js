@@ -40,7 +40,7 @@ $(document).ready(function () {
                     var subjectId = $('#enrollSubjectId').val();
                     $.ajax({
                         type: "POST",
-                        url: "/subjects/edit/"+subjectId,
+                        url: "/enroll/student/"+subjectId,
                         data: $('#studentInfoForm').serialize(),
                         success: function (response) {
                             console.log(response);
