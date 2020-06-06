@@ -112,11 +112,11 @@
         <div class="modal-body">
             <div class="card">
                 <ul class="list-group list-group-flush text-center">
-                    <li id="showFirstName" class="list-group-item">First Name:</li>
-                    <li id="showLastName" class="list-group-item">Last Name:</li>
-                    <li id="showId" class="list-group-item">ID:</li>
-                    <li id="showBirthday" class="list-group-item">Birthday:</li>
-                    <li id="showCourse" class="list-group-item">Course:</li>
+                    <li class="showFirstName list-group-item"></li>
+                    <li class="showLastName list-group-item"></li>
+                    <li class="showId list-group-item"></li>
+                    <li class="showBirthday list-group-item"></li>
+                    <li class="showCourse list-group-item"></li>
                 </ul>
             </div>
         </div>

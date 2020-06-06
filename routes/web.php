@@ -20,7 +20,7 @@ Route::get('/', function () {
 // Enroll Routes
 Route::get('/enroll', 'EnrolledSubjectController@show')->name('enrollment.enroll');
 Route::get('/enroll/{subjectName}', 'EnrolledSubjectController@show_results');
-Route::post('/subjects/edit/{subjectId}', 'EnrolledSubjectController@enroll_student');
+Route::post('/enroll/student/{subjectId}', 'EnrolledSubjectController@enroll_student');
 
 //Student Routes
 Route::get('/students', 'StudentController@index')->name('student.index');
@@ -34,7 +34,11 @@ Route::get('/subjects/{id}', 'SubjectController@show');
 Route::post('/subjects', 'SubjectController@store')->name('subject.store');
 Route::put('/subjects/edit/{id}', 'SubjectController@update');
 Route::delete('/subjects/delete/{id}', 'SubjectController@delete');
+Route::delete('/subjects/unenroll/{Id}', 'SubjectController@unenroll');
 
+//Authentication Routes(Generated)
 Auth::routes();
+// Auth::routes(['register' => false]); //disable registration
+
 
 Route::get('/home', 'HomeController@index')->name('home');
