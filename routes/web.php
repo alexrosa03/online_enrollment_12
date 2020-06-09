@@ -30,14 +30,14 @@ Route::put('/students/edit/{id}', 'StudentController@update');
 
 //Subject Routes
 Route::get('/subjects', 'SubjectController@index')->name('subject.index');
-Route::get('/subjects/{id}', 'SubjectController@show');
+Route::get('/subjects/{id}', 'SubjectController@show')->middleware('auth');
 Route::post('/subjects', 'SubjectController@store')->name('subject.store');
 Route::put('/subjects/edit/{id}', 'SubjectController@update');
 Route::delete('/subjects/delete/{id}', 'SubjectController@delete');
 Route::delete('/subjects/unenroll/{Id}', 'SubjectController@unenroll');
 
 //Authentication Routes(Generated)
-Auth::routes();
+Auth::routes(['register' => false]);
 // Auth::routes(['register' => false]); //disable registration
 
 
